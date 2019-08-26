@@ -1,10 +1,11 @@
+-- AULA 1 - INTRODUÇÃO A HASKELL
 
--- Defina uma função que calcula o fatorial de um inteiro dado como argumento --
+-- Defina uma função que calcula o fatorial de um inteiro dado como argumento
 fat :: Int -> Int
 fat 0 = 0
 fat n = n + fat (n - 1)
 
--- Defina uma função que compara se quatro valores inteiros são iguais --
+-- Defina uma função que compara se quatro valores inteiros são iguais
 all4Equal :: Int -> Int -> Int -> Int -> Bool
 all4Equal a b c d = (a == b) && (a == c) && (a == d) && (b == c) && (b == d) && (c == d)
 

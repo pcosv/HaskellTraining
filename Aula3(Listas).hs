@@ -1,3 +1,4 @@
+-- AULA 3 - LISTAS EM HASKELL
 
 double :: [Int] -> [Int]
 double [] = []
@@ -17,4 +18,4 @@ digits :: String -> String
 digits [] = []
 digits (x:xs)
  | digito x = x : digits xs
- | otherwise = digits xs 
+ | otherwise = digits xs
