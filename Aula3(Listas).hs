@@ -53,8 +53,54 @@ myTakeWhile (x:xs)
   |predicado x == True = x : myTakeWhile xs
   |predicado x == False = []
 
+-- função que devolve uma lista contendo todos os elementos da lista de entrada que antecedem o primeiro para o
+-- qual a função predicado produz valor True
 myDropWhile :: [Int] -> [Int]
 myDropWhile [] = []
 myDropWhile (x:xs)
   |predicado x == True = []
   |predicado x == False = x : myDropWhile xs
+
+
+type Pessoa = String
+type Livro = String
+type BancoDados = [(Pessoa,Livro)]
+
+baseExemplo :: BancoDados
+baseExemplo = [("Sergio","O Senhor dos Aneis"), ("Andre", "Duna"), ("Fernando", "Jonathan Strange & Mr. Norrell"), ("Fernando" ,"Duna")]
+
+-- Funções sobre a base de dados - consultas
+livros :: BancoDados -> Pessoa -> [Livro]
+livros [] p = []
+livros (x:xs) p
+  |fst x == p = snd x : (livros xs p)
+  |fst x /= p = (livros xs p)
+
+emprestimos :: BancoDados -> Livro -> [Pessoa]
+emprestimos [] l = []
+emprestimos (x:xs) l
+  |snd x == l = fst x : (emprestimos xs l)
+  |snd x /= l = (emprestimos xs l)
+
+emprestado :: BancoDados -> Livro -> Bool
+emprestado [] l = False
+emprestado (x:xs) l
+  |snd x == l = True
+  |snd x /= l = emprestado xs l
+
+qtdEmprestimos :: BancoDados -> Pessoa -> Int
+qtdEmprestimos [] p = 0
+qtdEmprestimos (x:xs) p
+  |fst x == p = 1 + qtdEmprestimos xs p
+  |fst x /= p = qtdEmprestimos xs p
+
+-- Funções sobre a base de dados - atualizações
+emprestar :: BancoDados -> Pessoa -> Livro -> BancoDados
+emprestar [] p l = [(p,l)]
+emprestar (x:xs) p l = (p,l):(x:xs)
+
+devolver :: BancoDados -> Pessoa -> Livro -> BancoDados
+devolver [] p l = []
+devolver (x:xs) p l
+  |x == (p,l) = xs
+  |x /= (p,l) = x : devolver xs p l 
