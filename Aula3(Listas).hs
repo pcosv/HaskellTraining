@@ -103,4 +103,4 @@ devolver :: BancoDados -> Pessoa -> Livro -> BancoDados
 devolver [] p l = []
 devolver (x:xs) p l
   |x == (p,l) = xs
-  |x /= (p,l) = x : devolver xs p l 
+  |x /= (p,l) = x : devolver xs p l
