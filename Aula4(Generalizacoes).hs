@@ -19,11 +19,11 @@ squareList x = map square x
 sumSquares :: [Int] -> Int
 sumSquares x = foldr1 (+) (squareList x)
 
-maiorQueZero :: Int -> Bool
-maiorQueZero n
+greaterThanZero :: Int -> Bool
+greaterThanZero n
   |n > 0 = True
   |otherwise = False
 
 -- defina a função que mantenha na lista todos os itens maiores que zero (filtering)
-maioresQueZero :: [Int] -> [Int]
-maioresQueZero x = filter maiorQueZero x
+gtzList :: [Int] -> [Int]
+gtzList x = filter gtzList x
