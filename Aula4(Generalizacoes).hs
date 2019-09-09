@@ -26,4 +26,16 @@ greaterThanZero n
 
 -- defina a função que mantenha na lista todos os itens maiores que zero (filtering)
 gtzList :: [Int] -> [Int]
-gtzList x = filter gtzList x
+gtzList x = filter greaterThanZero x
+
+maiorElementoLista :: [Int] -> Int
+maiorElementoLista [] = 0
+maiorElementoLista (x:xs)
+  |x > maiorElementoLista xs = x
+  |otherwise = maiorElementoLista xs
+
+-- defina uma função que: dada uma lista de listas de inteiros, devolve uma lista contendo o maior elemento de cada sub-lista da entrada
+maiores :: [[Int]] -> [Int]
+maiores [[]] = []
+maiores [x] = [maiorElementoLista x]
+maiores (x:xs) = maiorElementoLista x : maiores xs

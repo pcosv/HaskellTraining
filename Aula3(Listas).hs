@@ -40,8 +40,7 @@ myDrop [] n = []
 myDrop (x:xs) 0 = (x:xs)
 myDrop (x:xs) n = myDrop xs (n-1)
 
--- função que devolve uma lista contendo todos os elementos da lista de entrada que antecedem o primeiro para o
--- qual a função predicado produz valor False
+-- função que devolve uma lista contendo todos os elementos da lista de entrada que antecedem o primeiro para o qual a função predicado produz valor False
 predicado :: Int -> Bool
 predicado n
   |n >= 10 = True
@@ -53,8 +52,7 @@ myTakeWhile (x:xs)
   |predicado x == True = x : myTakeWhile xs
   |predicado x == False = []
 
--- função que devolve uma lista contendo todos os elementos da lista de entrada que antecedem o primeiro para o
--- qual a função predicado produz valor True
+-- função que devolve uma lista contendo todos os elementos da lista de entrada que antecedem o primeiro para o qual a função predicado produz valor True
 myDropWhile :: [Int] -> [Int]
 myDropWhile [] = []
 myDropWhile (x:xs)
