@@ -11,8 +11,12 @@ data Nome_do_Tipo
 2. Quando um tipo algebrico é definido, algumas classes podem ser instanciadas diretamente atraves da palavra reservada deriving para permitir operações básicas
 -}
 
-data Point = Point Float Float deriving (Show)
-data Shape = Circle Point Float | Rectangle Point Point deriving (Show)
+data Point
+  = Point Float Float deriving (Show)
+
+data Shape
+  = Circle Point Float
+  | Rectangle Point Point deriving (Show)
 
 surface :: Shape -> Float
 surface (Circle _ r) = pi * r ^ 2
