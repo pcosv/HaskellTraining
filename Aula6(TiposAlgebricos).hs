@@ -11,8 +11,7 @@ data Nome_do_Tipo
 2. Quando um tipo algebrico é definido, algumas classes podem ser instanciadas diretamente atraves da palavra reservada deriving para permitir operações básicas
 -}
 
-data Point
-  = Point Float Float deriving (Show)
+data Point = Point Float Float deriving (Show)
 
 data Shape
   = Circle Point Float
@@ -20,7 +19,7 @@ data Shape
 
 surface :: Shape -> Float
 surface (Circle _ r) = pi * r ^ 2
-surface (Rectangle (Point x1 y1) (Point x2 y2)) = (abs $ x2 - x1) * (abs $ y2 - y1)
+surface (Rectangle (Point x1 y1) (Point x2 y2)) = (abs (x2 - x1)) * (abs (y2 - y1))
 
 {-
 
@@ -36,3 +35,19 @@ mapTree :: (t −> u) -> Tree t -> Tree u
 -}
 
 -- showExpr :: Expr -> String
+
+
+-- Sintaxe de registro
+
+data Person = Person { firstName :: String
+                     , lastName :: String
+                     , age :: Int
+                     , height :: Float
+                     , phoneNumber :: String
+                     , flavor :: String
+                     } deriving (Show)
+
+-- Typeclasses
+
+-- Uma Typeclass (classe de tipos) é como uma interface que define um comportamento. Se um tipo é parte de uma typeclass,
+-- quer dizer que ela suporta e implementa o comportamento especificado pela classe de tipo. Ex: Eq, Ord, Show, Read, Enum
