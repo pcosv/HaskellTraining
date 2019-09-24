@@ -28,8 +28,9 @@ isMatrix [a] = True
 isMatrix (a:b:xs) = length a == length b && isMatrix (xs)
 
 -- (b)
-
-
+permutarLinhas :: [[a]] -> Int -> Int -> [[a]]
+permutarLinhas [] _ _ = []
+permutarLinhas l n m = (take n l) ++ [(l)!! (m)] ++ (take (m-n-1) (drop (n+1) l)) ++ [(l)!! (n)] ++ (drop (m+1) l)
 
 -- Questão 5
 filtrarEInserir :: [[Int]] -> Int -> ([[Int]], Int)
