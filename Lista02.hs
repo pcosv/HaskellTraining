@@ -1,6 +1,13 @@
 
 -- Questão 1
+c :: [Int] -> [Int]
+c (x:xs)  =  [ x | (x,y) <- zip (x:xs) xs, x == y ]
 
+d :: [Int] -> [Int]
+d [x]       =  []
+d (x:y:zs)
+  | x==y = x : d (y:zs)
+  | otherwise  = d (y:zs)
 
 -- Questão 2
 g ::[Int] -> Bool
